@@ -1,0 +1,15 @@
+.profileCardCont{
+    padding: 5%;
+}
+
+.profileCardCont img{
+    width: 220px;
+}
+
+.profileCard{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 15px;
+}
