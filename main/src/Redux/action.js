@@ -1,4 +1,4 @@
-import { AUTHENTICATION_REQUEST, AUTHENTICATION_SUCCESS, GET_JOB_CANDIDATES_FAILURE, GET_JOB_CANDIDATES_REQUEST, GET_JOB_CANDIDATES_SUCCESS, GET_PROFILES_BY_ID_FAILURE, GET_PROFILES_BY_ID_REQUEST, GET_PROFILES_BY_ID_SUCCESS, GET_PROFILES_FAILURE, GET_PROFILES_REQUEST, GET_PROFILES_SUCCESS, SEND_MESSAGE_FAILURE, SEND_MESSAGE_REQUEST, SEND_MESSAGE_SUCCESS, SET_CURRENT_USER_DETAILS_REQUEST, SET_CURRENT_USER_DETAILS_SUCCESS } from "./actionTypes"
+import { AUTHENTICATION_REQUEST, AUTHENTICATION_SUCCESS, BECOME_MENTOR_SUCCESS, CREATE_MENTOR_PROFILE_FAILURE, CREATE_MENTOR_PROFILE_REQUEST, CREATE_MENTOR_PROFILE_SUCCESS, GET_JOB_CANDIDATES_FAILURE, GET_JOB_CANDIDATES_REQUEST, GET_JOB_CANDIDATES_SUCCESS, GET_PROFILES_BY_ID_FAILURE, GET_PROFILES_BY_ID_REQUEST, GET_PROFILES_BY_ID_SUCCESS, GET_PROFILES_FAILURE, GET_PROFILES_REQUEST, GET_PROFILES_SUCCESS, LOGIN_MODAL_SUCCESS, SEND_MESSAGE_FAILURE, SEND_MESSAGE_REQUEST, SEND_MESSAGE_SUCCESS, SET_CURRENT_USER_DETAILS_REQUEST, SET_CURRENT_USER_DETAILS_SUCCESS } from "./actionTypes"
 import axios from 'axios'
 
 export const getProfilesRequest = () => {
@@ -26,7 +26,7 @@ export const getProfiles = (payload) => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3000/Mentor_profiles`
+        url: `http://localhost:3006/Mentor_profiles`
     }
 
     return axios(config)
@@ -65,7 +65,7 @@ export const getProfilesById = (id) => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3000/Mentor_profiles/${id}`
+        url: `http://localhost:3006/Mentor_profiles/${id}`
     }
 
     return axios(config)
@@ -123,7 +123,7 @@ export const getJobCandidates = () => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3000/job_candidates`
+        url: `http://localhost:3006/job_candidates`
     }
 
     return axios(config)
@@ -183,7 +183,7 @@ export const sendMessages = (id, data) => dispatch => {
 
     let config = {
         method: "PATCH",
-        url: `http://localhost:3000/Mentor_profiles/${id}`,
+        url: `http://localhost:3006/Mentor_profiles/${id}`,
         data
     }
 
@@ -195,5 +195,65 @@ export const sendMessages = (id, data) => dispatch => {
     .catch(err => {
         console.log(err)
         dispatch(getJobCandidatesFailure())
+    })
+}
+
+export const becomeMentorSuccess = (payload) => {
+    return{
+        type: BECOME_MENTOR_SUCCESS,
+        payload
+    }
+}
+
+export const becomeAMentor = (payload) => dispatch => {
+    dispatch(becomeMentorSuccess(payload))
+}
+
+export const loginModalSuccess = (payload) => {
+    return{
+        type: LOGIN_MODAL_SUCCESS,
+        payload
+    }
+}
+
+export const openLoginModal = (payload) => dispatch => {
+    dispatch(loginModalSuccess(payload))
+}
+
+export const createMentorProfileRequest = () => {
+    return{
+        type: CREATE_MENTOR_PROFILE_REQUEST,
+    }
+}
+
+export const createMentorProfileSuccess = () => {
+    return{
+        type: CREATE_MENTOR_PROFILE_SUCCESS,
+    }
+}
+
+export const createMentorProfileFailure = () => {
+    return{
+        type: CREATE_MENTOR_PROFILE_FAILURE,
+    }
+}
+
+export const createMentorProfile = (payload) => dispatch => {
+    dispatch(createMentorProfileRequest())
+
+    let config = {
+        method: "POST",
+        url: `http://localhost:3006/Mentor_profiles`,
+        data: payload
+    }
+
+    return axios(config)
+    .then(res => {
+        dispatch(createMentorProfileSuccess(res.data))
+        dispatch(getProfiles())
+    })
+    .catch(err => {
+        console.log(err)
+        dispatch(createMentorProfileFailure())
     })
 }
