@@ -1,4 +1,4 @@
-import { AUTHENTICATION_REQUEST, AUTHENTICATION_SUCCESS, BECOME_MENTOR_SUCCESS, CREATE_MENTOR_PROFILE_FAILURE, CREATE_MENTOR_PROFILE_REQUEST, CREATE_MENTOR_PROFILE_SUCCESS, GET_JOB_CANDIDATES_FAILURE, GET_JOB_CANDIDATES_REQUEST, GET_JOB_CANDIDATES_SUCCESS, GET_PROFILES_BY_ID_FAILURE, GET_PROFILES_BY_ID_REQUEST, GET_PROFILES_BY_ID_SUCCESS, GET_PROFILES_FAILURE, GET_PROFILES_REQUEST, GET_PROFILES_SUCCESS, LOGIN_MODAL_SUCCESS, SEND_MESSAGE_FAILURE, SEND_MESSAGE_REQUEST, SEND_MESSAGE_SUCCESS, SET_CURRENT_USER_DETAILS_REQUEST, SET_CURRENT_USER_DETAILS_SUCCESS } from "./actionTypes"
+import { AUTHENTICATION_REQUEST, AUTHENTICATION_SUCCESS, BECOME_MENTOR_SUCCESS, CREATE_MENTOR_PROFILE_FAILURE, CREATE_MENTOR_PROFILE_REQUEST, CREATE_MENTOR_PROFILE_SUCCESS, GET_JOB_CANDIDATES_FAILURE, GET_JOB_CANDIDATES_REQUEST, GET_JOB_CANDIDATES_SUCCESS, GET_PROFILES_BY_ID_FAILURE, GET_PROFILES_BY_ID_REQUEST, GET_PROFILES_BY_ID_SUCCESS, GET_PROFILES_FAILURE, GET_PROFILES_REQUEST, GET_PROFILES_SUCCESS, LOGIN_MODAL_SUCCESS, SEND_MESSAGE_FAILURE, SEND_MESSAGE_REQUEST, SEND_MESSAGE_SUCCESS, SET_CURRENT_MENTEE_SUCCESS, SET_CURRENT_USER_DETAILS_REQUEST, SET_CURRENT_USER_DETAILS_SUCCESS } from "./actionTypes"
 import axios from 'axios'
 
 export const getProfilesRequest = () => {
@@ -189,12 +189,12 @@ export const sendMessages = (id, data) => dispatch => {
 
     return axios(config)
     .then(res => {
-        dispatch(getJobCandidatesSuccess(res.data))
+        dispatch(sendMessagesSuccess(res.data))
         dispatch(getProfilesById(id))
     })
     .catch(err => {
         console.log(err)
-        dispatch(getJobCandidatesFailure())
+        dispatch(sendMessagesFailure())
     })
 }
 
@@ -256,4 +256,15 @@ export const createMentorProfile = (payload) => dispatch => {
         console.log(err)
         dispatch(createMentorProfileFailure())
     })
+}
+
+export const setCurrentMenteeSuccess = (payload) => {
+    return{
+        type: SET_CURRENT_MENTEE_SUCCESS,
+        payload
+    }
+}
+
+export const setCurrentMentee = (payload) => dispatch => {
+    dispatch(setCurrentMenteeSuccess(payload))
 }

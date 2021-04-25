@@ -1,36 +1,75 @@
 .navBar{
     display: flex;
-    background-color: #0ca271;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
+    background-color: #fcfcfd;
+    position: sticky;
+    -webkit-box-shadow: 0 8px 6px -6px #E8E8E8;
+	   -moz-box-shadow: 0 8px 6px -6px #E8E8E8;
+	        box-shadow: 0 8px 6px -8px #E8E8E8;
 }
 
 .navBar img{
-    width: 200px;
+    width: 250px;
+    height: 80px;
     padding: 20px;
+    padding-left: 2%;
     cursor: pointer;
 }
 
-.navBar>div{
-    margin: 0% 5%;
+/* .navBar>div{
+    margin-left: 45%;
     display: flex;
     flex-direction: row;
-    margin-left: 35%;
 }
 
 .navBar >div div{
     width: 120px;
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 12px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.navBar >div div:hover{
+    font-weight: 500;
 }
 
 .navBar >div div:nth-child(2){
-    width: 200px;
+    width: 250px;
     padding: 20px;
+} */
+
+.div1{
+    display: flex;
+    margin-left: 35%;
+    margin-top: 10px;
+}
+
+.div1 div:nth-child(1){
+    width: 120px;
+}
+
+.div1 div:nth-child(2){
+    width: 250px
+}
+
+.div1 div:hover{
+    font-weight: 500;
+}
+
+.div1 div{
+    font-size: 18px;
+    margin: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
 }
 
 .navBar button{
-    margin: 20px 10px;
+    margin: 25px 10px;
     width: 80px;
     cursor: pointer;
     border-radius: 5px;
@@ -39,6 +78,7 @@
     border: none;
     color: white;
     font-weight: 700;
+    padding: 7px;
 }
 
 .navBar button:hover{
@@ -46,10 +86,10 @@
 }
 
 @media only screen and (max-width: 700px){
-    .navBar >div{
+    .div1{
         display: none;
     }
     .navBar img{
-        margin-right: 20%;
+        margin-right: 30%;
     }
 }

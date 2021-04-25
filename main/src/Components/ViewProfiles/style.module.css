@@ -1,15 +1,68 @@
 .profileCardCont{
     padding: 5%;
+    padding-top: 2%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 .profileCardCont img{
     width: 220px;
 }
 
+.nameCont{
+    display: flex;
+    width: 200px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.nameCont p{
+    width: 200px;
+}
+
+.nameCont img{
+    width: 20px !important;
+}
+
+.nameCont a{
+    text-decoration: none;
+}
+
+
 .profileCard{
-    border: 1px solid black;
     padding: 20px;
     border-radius: 4px;
     margin: auto;
     margin-bottom: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.profileCard p{
+    font-size: 16px;
+}
+
+.profileCard button{
+    padding: 5px 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    outline: none;
+    cursor: pointer;
+}
+
+.profileCard button:hover{
+    color: white;
+    background-color: black;
+    font-weight: 500;
+}
+
+.rating{
+    display: flex;
+    margin-left: 25%;
+}
+
+.rating span{
+    color: rgb(16, 192, 75);
+    font-weight: 900;
 }

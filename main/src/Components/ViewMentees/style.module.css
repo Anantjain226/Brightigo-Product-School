@@ -1,0 +1,32 @@
+.MenteeCardCont{
+    padding: 5%;
+    text-align: center;
+}
+
+.MenteeCardCont img{
+    width: 220px;
+    border-radius: 120px;
+}
+
+.MenteeCard{
+    padding: 20px;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.MenteeCard button{
+    padding: 5px 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    outline: none;
+    cursor: pointer;
+}
+
+.emptyMentees{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: darkgray;
+}

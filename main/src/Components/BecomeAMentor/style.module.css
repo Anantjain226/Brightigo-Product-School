@@ -1,22 +1,39 @@
-.modal{
-    margin-top: 8%;
+.modal p:nth-child(1){
+    margin-top: 20px;
 }
 
 .modal p{
     margin-left: 5px;
-    line-height: 10px;
+    line-height: 5px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .modal input{
     width: 80%; 
     padding: 8px;
     margin: 3px;
-    border: 1px solid grey;
+    border: 1px solid #D3D3D3;
     outline: none;
     border-radius: 3px;
     margin-bottom: 20px;
 }
 
-.modal button{
-    margin-left: 35%;
+.modal input:focus{
+    border: 1px solid grey;
+}
+
+.button{
+    margin-left: 38%;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid darkgray;
+}
+
+.button:hover{
+    background-color: #F0F0F0;
+    border: 1px solid grey;
 }
