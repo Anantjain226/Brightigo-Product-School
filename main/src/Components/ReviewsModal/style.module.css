@@ -1,0 +1,31 @@
+.reviwModal{
+    max-height: 400px;
+    overflow: auto;
+}
+
+.name{
+    display: flex;
+    height: 30px;
+}
+
+.name img{
+    width: 30px;
+    margin-top: 5px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.reviwModal p{
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 40px;
+    color: rgb(16, 192, 75);
+    font-weight: 400;
+}
+
+
+.noReview{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: darkgray;
+}

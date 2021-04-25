@@ -4,10 +4,11 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import {useSelector, useDispatch} from 'react-redux'
 import { authenticateUser } from '../Redux/action'
+import { LoginModal } from './LoginModal/LoginModal'
 
 firebase.initializeApp({
-    apiKey: "AIzaSyB3EvzjHX6t9fn0lszGbL4mfwVox_SLoXY",
-    authDomain: "brightigo-49674.firebaseapp.com"
+    apiKey: "AIzaSyDJ8_Gx13M9kjVJe3wE4ECPfOF6PTeOPjU",
+    authDomain: "brightigo-3aca0.firebaseapp.com"
 })
 
 
@@ -36,13 +37,9 @@ export const Login = () => {
     return (
         <div>
             {
-                isAuth? <Redirect to = "/profiles" /> : 
+                isAuth? <Redirect to = "/" /> : 
                 <div>
-                    <button onClick = {() => firebase.auth().signOut()} >SIGN OUT!</button>
-                    <StyledFirebaseAuth 
-                        uiConfig = {uiConfig}
-                        firebaseAuth = {firebase.auth()}
-                    />
+                    <LoginModal open = {true} />
                 </div>
             }
         </div>

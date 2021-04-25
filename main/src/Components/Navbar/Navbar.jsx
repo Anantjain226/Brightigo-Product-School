@@ -22,19 +22,22 @@ export const Navbar = () => {
     const handleSignOut = () => {
         firebase.auth().signOut()
         dispatch(setUserDetails(""))
+        history.push("/")
         dispatch(openLoginModal(false))
     }
 
     return (
         <section className = {styles.navBar} >
             <img src = "https://producthyre.com/images/logo.png" onClick = {logoClick}/>
-            <div>
+            <div className = {styles.div1} >
                 <div>Post Jobs</div>
                 <div>Hire Product Managers!</div>
             </div>
-            {
-                !isAuth? <button onClick = {handleLoginModal} >Sign In</button> : <button onClick = {handleSignOut} >Sign Out</button>
-            }
+            <div className = {styles.div2} >
+                {
+                    !isAuth? <button onClick = {handleLoginModal} >Sign In</button> : <button onClick = {handleSignOut} >Sign Out</button>
+                }
+            </div>
         </section>
     )
 }

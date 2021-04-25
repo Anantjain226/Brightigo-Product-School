@@ -40,6 +40,11 @@ export default function LandingPage() {
         dispatch(openLoginModal(true))
     }
 
+
+    const viewMentees = () => {
+        history.push("/viewMentees")
+    }
+
     useEffect(() => {
         // dispatch(getJobCandidates())
         dispatch(setUserDetails(firebase.auth().currentUser))
@@ -48,26 +53,28 @@ export default function LandingPage() {
 
     return (
         <div className = {style.landingPage} >
-            <Navbar />
+            <Navbar sticky = "top" />
             <section className = {style.section1} >
                 <p>Find Amazing Product Mentors</p>
                 <p>Discover  <b>200+ </b>amazing Product Managers in India</p>
                 <div>
-                    <button>
+                    <button onClick = {seeMentors}>
                         ⚡ Find a Mentor
                     </button>
                     <button onClick = {handleBecomeAMentor}>
                         ❤️ Become a Mentor
                     </button>
+                    <p onClick = {viewMentees} > Already a mentor? Sign in</p>
                 </div>
+                <img src = "https://product-manager-v1.netlify.app/img/header-img.jpeg" />
             </section>
             <section className = {style.section2}>
                 <p>Trusted by the world's leading companies</p>
                 <img src= {companiesLogo} />
-                <p>200+ Product Managers recently added</p>
-                <h1>Product Managers looking for jobs 🚀</h1>
+                {/* <p>200+ Product Managers recently added</p>
+                <h1>Product Managers looking for jobs 🚀</h1> */}
             </section>
-            <section>
+            <section >
                 <div className = {style.joinList} >
                     <p>How we are doing this?</p>
                     <Grid container spacing = {1} >
@@ -95,7 +102,8 @@ export default function LandingPage() {
                     </Grid>
                 </div>
             </section>
-            <section>
+            <section style = {{height: 100}} >
+
             </section>
             {
                 loginModal && !isAuth? <LoginModal open = {true} /> : ""

@@ -1,16 +1,9 @@
-.main{
-    margin: 3%;
-    margin-left: 8%;
-    display: flex;
-}
-
-
-
 .chatCont{
     margin: auto;
     width: 50%;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2)
 }
+
 
 .chatWindow{
     width: 100%;
@@ -18,7 +11,6 @@
     border-radius: 4px;
     overflow: auto;
     padding: 2%;
-    
 }
 
 .inputBox{
@@ -74,63 +66,26 @@
     margin-top: -2px;
 }
 
-
-.aboutMentor{
+.aboutMentee{
     text-align: center;
     width: 400px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.aboutMentor img{
+.aboutMentee img{
     width: 160px;
     border-radius: 100px;
     margin-bottom: 10px;
 }
 
-.aboutMentor p{
+.aboutMentee p{
     text-align: justify;
 }
 
-.aboutMentor p:nth-child(1){
-    text-align: center;
-}
-
-.aboutMentor textarea{
-    margin-top: 20px;
-    width: 300px;
-}
-
-.askMe{
+.main{
     display: flex;
-}
-
-.askMe button{
-    padding: 6px 10px;
-    background-color: rgb(255,165,2, 0.05);
-    border: 1px solid rgb(255,165,2, 0.5);
-    border-radius: 5px;
-    margin: 5px;
-    color: rgb(255,165,2);
-    font-weight: 500;
-    outline: none;
-}
-
-.askMe p{
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.review button{
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgb(50,205,50, 0.05);
-    border: 1px solid rgb(50,205,50, 0.5);
-    color: rgb(50,205,50);
-    font-weight: 500;
-    font-family: 'Montserrat', sans-serif;
-    outline: none;
-    cursor: pointer;
+    margin: 3%;
+    margin-left: 8%;
 }
 
 .startConvo{
@@ -139,3 +94,13 @@
     color: darkgray;
 }
 
+@media only screen and (max-width: 800px){
+    .main{
+        display: block;
+        text-align: center;
+    }
+    .chatCont{
+        margin-top: 100px;
+        width: 100%;
+    }
+}

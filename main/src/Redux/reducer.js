@@ -1,4 +1,4 @@
-import { GET_PROFILES_SUCCESS, GET_PROFILES_BY_ID_SUCCESS, AUTHENTICATION_SUCCESS, GET_JOB_CANDIDATES_SUCCESS, SET_CURRENT_USER_DETAILS_SUCCESS, BECOME_MENTOR_SUCCESS, LOGIN_MODAL_SUCCESS } from "./actionTypes"
+import { GET_PROFILES_SUCCESS, GET_PROFILES_BY_ID_SUCCESS, AUTHENTICATION_SUCCESS, GET_JOB_CANDIDATES_SUCCESS, SET_CURRENT_USER_DETAILS_SUCCESS, BECOME_MENTOR_SUCCESS, LOGIN_MODAL_SUCCESS, SET_CURRENT_MENTEE_SUCCESS } from "./actionTypes"
 
 const initState = {
     mentorProfiles: [],
@@ -8,7 +8,8 @@ const initState = {
     currentUser: "",
     alreadyAMentor: "",
     becomeMentor: false,
-    loginModal: false
+    loginModal: false,
+    currentMentee: ""
 }
 
 export const reducer = (state = initState, {type, payload}) => {
@@ -48,6 +49,11 @@ export const reducer = (state = initState, {type, payload}) => {
             return{
                 ...state,
                 loginModal: payload
+            }
+        case SET_CURRENT_MENTEE_SUCCESS:
+            return{
+                ...state,
+                currentMentee: payload
             }
         default:
             return state

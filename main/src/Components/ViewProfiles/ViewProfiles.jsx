@@ -13,7 +13,7 @@ export const ViewProfiles = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const profiles = useSelector(state => state.mentorProfiles)
-
+    const currentMentee = useSelector(state => state.currentUser)
 
     const handleMentorClick = (id) => {
         history.push(`/profiles/${id}`)
@@ -25,7 +25,7 @@ export const ViewProfiles = () => {
         dispatch(setUserDetails(firebase.auth().currentUser))
     },[])
 
-    console.log(profiles)
+    console.log(currentMentee)
 
     return (
         <div>
@@ -37,10 +37,23 @@ export const ViewProfiles = () => {
                         return(
                             <Grid spacing = {2} container item xs = {12} sm = {6} md = {4} lg = {3} key = {item.id} >
                                 <div className = {style.profileCard}>
-                                    <img src= {item.photo_url} />
-                                    <p> {item.name} </p>
+                                    {/* {
+                                        item.mentees.find(data => data.email === currentMentee.email)
+                                    } */}
+                                    <img src= {item.photo_url}  style = {{borderRadius: "120px"}} />
+                                    <div className = {style.nameCont} >
+                                        <p> {item.name} </p>
+                                        <a href = {item.profile_link} target = "_blank" >
+                                        <img src= "https://image.flaticon.com/icons/png/512/174/174857.png" />
+                                        </a>
+                                    </div>
                                     <p> Works at {item.company} </p>
-                                    <a target="_blank" href = {item.profile_link}> View Profile </a> <br />
+                                    <div className = {style.rating} >
+                                        {
+                                            item.rating && item.rating.length> 0 ? <p>Rating: <span> {(item.rating.reduce((a,c) => a+c))/item.rating.length}</span> </p> : <p>Rating: NA </p>
+                                        }
+                                    </div>
+
                                     <button onClick= {(e)=> handleMentorClick(item.id)}> Seek Mentorship </button>
                                 </div>
                             </Grid>
