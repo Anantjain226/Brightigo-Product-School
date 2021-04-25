@@ -26,7 +26,7 @@ export const getProfiles = (payload) => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3006/Mentor_profiles`
+        url: `https://brightigo-json-server.herokuapp.com/Mentor_profiles`
     }
 
     return axios(config)
@@ -65,7 +65,7 @@ export const getProfilesById = (id) => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3006/Mentor_profiles/${id}`
+        url: `https://brightigo-json-server.herokuapp.com/Mentor_profiles/${id}`
     }
 
     return axios(config)
@@ -123,7 +123,7 @@ export const getJobCandidates = () => dispatch => {
 
     let config = {
         method: "GET",
-        url: `http://localhost:3006/job_candidates`
+        url: `https://brightigo-json-server.herokuapp.com/job_candidates`
     }
 
     return axios(config)
@@ -183,7 +183,7 @@ export const sendMessages = (id, data) => dispatch => {
 
     let config = {
         method: "PATCH",
-        url: `http://localhost:3006/Mentor_profiles/${id}`,
+        url: `https://brightigo-json-server.herokuapp.com/Mentor_profiles/${id}`,
         data
     }
 
@@ -243,7 +243,7 @@ export const createMentorProfile = (payload) => dispatch => {
 
     let config = {
         method: "POST",
-        url: `http://localhost:3006/Mentor_profiles`,
+        url: `https://brightigo-json-server.herokuapp.com/Mentor_profiles`,
         data: payload
     }
 
