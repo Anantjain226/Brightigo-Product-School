@@ -139,3 +139,13 @@
     color: darkgray;
 }
 
+@media only screen and (max-width: 800px){
+    .main{
+        display: block;
+        text-align: center;
+    }
+    .chatCont{
+        margin-top: 100px;
+        width: 100%;
+    }
+}

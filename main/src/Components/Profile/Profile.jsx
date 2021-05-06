@@ -86,6 +86,43 @@ export const Profile = () => {
         fileName.current = null
     }
 
+    const handleSendOnEnter = (e) => {
+        if (e.keyCode === 13){
+            const payload = {
+                id: uuid(),
+                sender: email,
+                message: input || URL.createObjectURL(fileName.current.files[0]),
+                photo_url: user.photoURL
+            }
+            
+            if(profile){
+                console.log(profile)
+                var mentee = profile.mentees.find(item => item.email == email)
+                if(mentee){
+                    const updatedData = profile.mentees.map(item => item.email == email ? {...item, messages: [...item.messages, payload] }: item)
+                    const updatedProfile = {...profile, mentees: updatedData}
+                    dispatch(sendMessages(id, updatedProfile))
+                }
+                else{
+                    const newMentee = {
+                        id: uuid(),
+                        email: email,
+                        photo_url: user.photoURL,
+                        messages: [payload],
+                        name: user.displayName
+                    }
+                    const updatedMentees = [...profile.mentees, newMentee]
+                    const updatedProfile = {...profile, mentees: updatedMentees}
+                    dispatch(sendMessages(id, updatedProfile))
+                }
+                // window.location.reload()
+                // history.push("/profiles/id")
+            }
+            setInput("")
+            fileName.current = null
+        } 
+    }
+
     const sendReview = () => {
         const payload = {
             mentee_name: user.displayName,
@@ -189,8 +226,8 @@ export const Profile = () => {
                     <div className = {style.inputBox} >
                         <input type = "file" ref = {fileName} />
                         <div>
-                            <input value = {input} onChange = {(e) => setInput(e.target.value)} />
-                            <button onClick = {handleSend} > <img src ="https://www.flaticon.com/svg/vstatic/svg/565/565340.svg?token=exp=1619077634~hmac=e477879182e7369f37f3eb59917269dc" /> </button>
+                            <input value = {input} onChange = {(e) => setInput(e.target.value)} onKeyUp = {handleSendOnEnter} />
+                            <button onClick = {handleSend} > <img src ="https://icons-for-free.com/iconfiles/png/512/message+mobile+send+file+smartphone+talk+telegram+icon-1320193499208602297.png" /> </button>
                         </div>
                     </div>
                 </div>
